@@ -14,7 +14,7 @@ module.exports = {
             // fonts: cmsPath + '/fonts'
         },
         src: { // Source files
-            pug: 'src/pug/**/*',
+            pug: 'src/pug/**/*.pug',
             style: 'src/sass/main.sass',
             img: 'src/images/**/*.+(png|jpg|jpeg|gif)',
             pngIcons: 'src/images/icons/png/*.png',
