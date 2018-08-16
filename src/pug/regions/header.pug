@@ -1,0 +1,29 @@
+include ../mixins/svg-icon
+header.header
+    .container
+        .row.align-items-center
+
+            .col-lg-7.col-3.order-lg-2.header__middle
+                a.hamburger.btn.btn-secondary.d-lg-none(href="#")
+                    span
+
+                nav.header__nav
+                    include menu.pug
+
+            .col-lg-3.col-6.order-lg-1.header__left
+                .header__logo
+                    a(href='/')
+                        img(src="images/logo.jpg", alt="Логотип сайта", width="200")
+
+            .col-lg-2.col-3.order-3.header__right
+                .mod-search.d-flex.justify-content-end
+                    a.btn.btn-secondary.mod-search__toggle.px-1.d-xxl-none(href="#", data-toggle="dropdown")
+                        +icon('search')
+
+                    form.search-form(action="#", method="post")
+                        a.search-form__mobile-arrow.d-md-block.pr-3.d-xxl-none(href='#', onclick="return false")
+                            +icon('arrow-left')
+
+                        input.search-form__inputbox.mr-2(type="text", placeholder="Поиск по сайту...")
+                        button.btn.btn-secondary.search-form__submit
+                            +icon('search')

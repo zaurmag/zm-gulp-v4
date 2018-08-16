@@ -1,0 +1,96 @@
+@charset "UTF-8"
+
+/**
+ *  ZM-IT - разработка сайтов
+ *  https://zm-it.ru
+ *  E-mail: info@zm-it.ru
+ *  Skype: zaur-mag11
+ *  Phone: +7 (928) 526-55-44
+ *  @author: Заур Магомедов
+ *  Автор URL: https://zaurmag.ru
+ */
+
+@import 'bootstrap/bootstrap'
+//@import 'mixins/sprite-img'
+@import 'mixins/sprite-svg'
+@import 'mixins/pos-center'
+@import 'typography'
+@import 'regions/header'
+@import 'regions/menu'
+@import 'regions/main-col'
+@import 'regions/sidebar'
+@import 'regions/footer'
+
+/* ============================================================================
+   CUSTOM STYLES
+   ========================================================================= */
+
+body
+    background-color: $white
+
+    &.animate
+        .overlay
+            visibility: visible
+            opacity: 1
+            transition: all .3s ease
+
+#page
+    background-color: transparent
+    display: flex
+    flex-direction: column
+    margin: 0 auto
+    text-align: left
+    min-width: 320px
+    max-width: 1920px
+    transition: margin .2s ease
+    position: relative
+    height: 100vh
+    @include media-breakpoint-down(md)
+        padding-top: 75px
+
+/**
+ * Fix for IE11
+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    #page
+        display: block
+
+/**
+ * Overlay
+ */
+.overlay
+    background-color: rgba(0, 0, 0, .35)
+    opacity: 0
+    visibility: hidden
+    position: fixed
+    transition: all .3s ease
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 101
+
+
+.slider
+    &__item
+        background-color: #cccccc
+        padding: 30px
+        height: 100px
+        width: 100%
+
+/* Import styles
+   ========================================================================= */
+
+//@import 'elements/form'
+@import 'components/go-top'
+@import 'components/resp-video'
+//@import 'components/tooltip'
+@import 'components/error'
+//@import 'components/joomla-search'
+@import 'components/breadcrumbs'
+@import 'components/paginations'
+@import 'components/module'
+@import 'regions/modules'
+@import 'libs/magnific-popup/main'
+@import 'libs/owl-carousel/owl.carousel'
+@import 'libs/owl-carousel/owl.theme.default'

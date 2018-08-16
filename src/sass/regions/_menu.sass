@@ -1,0 +1,287 @@
+/* ------------------------------------------------------------------------ *
+                            ** MOBILE MENU **
+ * ------------------------------------------------------------------------ */
+@include media-breakpoint-down(md)
+
+    // ****************** Hamburger ****************** //
+    .hamburger
+        align-items: center
+        display: flex
+        flex-direction: column
+        text-decoration: none
+        position: relative
+        outline: none
+        transition: transform .3s ease
+        justify-content: space-between
+        padding-top: 8px
+        padding-bottom: 8px
+        height: 40px
+        width: 40px
+        z-index: 10
+
+        &::before, &::after, > span
+            background: $white
+            content: ""
+            display: block
+            transition: transform .3s ease
+            height: 3px
+            width: 20px
+
+        &.open
+            transition: transform .3s ease
+
+            span
+                left: -50px
+                opacity: 0
+
+            &::before, &::after
+                top: 50%
+                position: absolute
+
+
+            &::after
+                transform: rotate(-45deg)
+
+            &::before
+                transform: rotate(45deg)
+
+    // ****************** // Hamburger // ****************** //
+
+    body
+        &.open-nb
+            .header__nav
+                transform: translateX(0)
+                transition: transform .3s ease
+
+        .header__nav
+            background-color: $gray-300
+            position: fixed
+            top: 60px
+            left: 0
+            transform: translateX(-100%)
+            transition: transform .3s ease
+            overflow-y: auto
+            height: 100%
+            width: 260px
+            z-index: 110
+
+            .menu
+                font-size: 14px
+                font-weight: 700
+                text-transform: uppercase
+
+                // **** All levels ****
+                li
+                    span
+                        cursor: default
+
+                // **** 1-st level ****
+                > li
+                    border-bottom: 1px solid $gray-500
+
+                    > a
+                        align-items: center
+                        display: flex !important
+                        .icon
+                            margin-right: 10px
+                            font-size: 20px
+
+
+                    a, span
+                        color: $gray-900
+                        text-decoration: none
+                        padding: 0 20px
+                        height: 45px
+                        line-height: 50px
+
+                        &:not(.btn-dropdown):hover
+                            background-color: $gray-400
+
+                    &.parent
+                        position: relative
+
+                        > a, > span:not(.btn-dropdown)
+                            display: block
+
+                        .btn-dropdown
+                            align-items: center
+                            border-left: 1px solid $gray-500
+                            cursor: pointer
+                            padding: 0
+                            display: flex
+                            position: absolute
+                            top: 0
+                            right: 0
+                            justify-content: center
+                            height: 45px
+                            width: 45px
+                            z-index: 3
+
+                            .icon
+                                border-left: 5px solid $gray-900
+                                border-top: 5px solid transparent
+                                border-bottom: 5px solid transparent
+                                content: ""
+                                display: block
+                                transition: all .3s ease
+                                height: 0
+                                width: 0
+
+                        &.open-child, &.active:not(.close-child)
+                            > a
+                                background-color: $gray-600
+                                position: relative
+                                z-index: 2
+
+                            a, span
+                                color: $white
+
+                            .btn-dropdown
+                                border-left: none
+                                .icon
+                                    transform: rotate(90deg)
+                                    transition: all .3s ease
+
+                        &.active:not(.close-child)
+                            .btn-dropdown
+                                .icon
+                                    transform: rotate(0)
+
+                        // **** 2-d level ****
+                        .sub-menu
+                            background-color: $gray-500
+                            font-size: 14px
+                            font-weight: 500
+                            position: relative
+                            width: 100%
+                            z-index: 1
+
+                            li
+                                a, span
+                                    border-bottom: none !important
+                                    display: block
+                                    padding: 0 20px
+                                    text-decoration: none
+
+                                    &:hover
+                                        background-color: $gray-600
+
+                                &:not(:first-child)
+                                    border-top: 1px solid $gray-600
+
+                                &.active
+                                    a, span
+                                        background-color: $gray-600
+
+
+/* ------------------------------------------------------------------------ *
+ *                          ** DESKTOP MENU **
+ * ------------------------------------------------------------------------ */
+
+@include media-breakpoint-up(lg)
+    .header__nav
+        .menu
+            display: flex
+            font-size: 13px
+            font-weight: 700
+            text-transform: uppercase
+            justify-content: center
+
+            > li
+                margin: 0 5px
+
+                > a, span
+                    align-items: center
+                    color: $gray-700
+                    display: flex
+                    text-decoration: none
+                    padding: 10px 10px
+
+                    @include media-breakpoint-up(xxl)
+                        padding: 10px 20px
+
+                &:hover
+                    a, span
+                        color: $blue
+
+                &.parent
+                    position: relative
+
+                    > a, > span
+                        position: relative
+
+                        &::after
+                            border-top: 1px solid $black
+                            border-right: 1px solid $black
+                            content: ""
+                            position: absolute
+                            right: 0
+                            top: 50%
+                            transform: translateY(-50%) rotate(135deg)
+                            height: 6px
+                            width: 6px
+
+                    &:hover
+                        &::after
+                            border-top-color: $blue
+                            border-right-color: $blue
+
+                        .sub-menu
+                            opacity: 1
+                            visibility: visible
+                            transition: all .3s ease
+                            margin-top: 0
+
+                &.active
+                    > a, > span
+                        background-color: $gray-500
+                        position: relative
+
+                        &::after
+                            border-top-color: $white
+                            border-right-color: $white
+                            right: 6px
+
+        // **** Submenu ****
+        .sub-menu
+            background-color: $gray-500
+            opacity: 0
+            visibility: hidden
+            transition: all .3s ease
+            margin-top: 20px
+            position: absolute
+            padding-top: 10px
+            padding-bottom: 10px
+            top: 100%
+            left: 0
+            font-weight: 500
+            min-width: 250px
+
+            &::before
+                border-bottom: 10px solid $gray-500
+                border-left: 10px solid transparent
+                border-right: 10px solid transparent
+                content: ""
+                position: absolute
+                top: -10px
+                left: 25px
+                height: 0
+                width: 0
+
+            li
+                > a, > span
+                    color: $white !important
+                    display: block
+                    padding: 10px 25px
+
+                    &:hover
+                        background-color: $gray-600
+                        text-decoration: none
+
+                &.active
+                    > a, > span
+                        background-color: $gray-600
+
+/* ------------------------------------------------------------------------ *
+ *                             // DESKTOP MENU //
+ * ------------------------------------------------------------------------ */

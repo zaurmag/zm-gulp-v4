@@ -1,0 +1,23 @@
+ul.menu.nav
+    - var i = 1;
+    each name in ['Главная', 'Еще один', 'Еще', 'С подпунктами']
+        if(i == 4)
+            li.parent
+                a(href="#")= name
+                - i++
+
+                if(i == 5)
+                    ul.sub-menu
+                        each name in ['Подпункт', 'Подпункт', 'Подпункт']
+                            li
+                                a(href="#")= name
+        else
+            li
+                a(href="#")= name
+                - i++
+
+                if(i == 5)
+                    ul.sub-menu
+                        each name in ['Подпункт', 'Подпункт', 'Подпункт']
+                            li
+                                a(href="#")= name

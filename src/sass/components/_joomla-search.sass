@@ -1,0 +1,77 @@
+// ****************** Search component Joomla ******************
+.search_buttons_block
+    border-bottom: 2px solid $blue
+    margin: 0 0 30px
+    padding: 0 0 30px
+    display: flex
+    min-width: 260px
+
+.search_buttons_block .btn
+    padding: 0 20px
+
+#searchForm #search-searchword
+    width: calc(11rem + 900 * (100vw - 320px) / 880)
+    min-width: 176px
+
+.phrases
+    border-bottom: 1px solid #c8c8c8
+    border-top: 1px solid #c8c8c8
+    display: flex
+    justify-content: space-between
+    padding: 10px 0
+    margin: 0 0 20px
+
+.phrases-box
+    margin-right: 15px
+
+.phrases-box label
+    color: #383838
+    margin-right: 15px
+    font-size: 14px
+
+.phrases-box .jq-radio
+    margin-right: 5px
+
+.phrases-box input[type="radio"]
+    margin-right: 5px
+
+.ordering-box
+    font-size: 14px
+    color: #383838
+
+.form-limit
+
+@media (max-width: 768px)
+    .phrases
+        flex-direction: column
+
+    .phrases > div:not(:last-child)
+        margin-bottom: 15px
+
+#searchForm .chzn-results
+    margin: 0 4px 4px 0
+    font-size: 14px
+
+#searchForm .chzn-results li
+    padding: 5px 10px
+
+#searchForm .ordering
+    margin-right: 5px
+    line-height: 24px
+
+.result_block
+    border-bottom: 1px dotted #999
+    margin: 0 0 20px
+    padding: 0 0 20px
+    font-size: 14px
+
+.result-title
+    font-size: 16px
+    margin-bottom: 5px
+
+.result-text
+    color: #383838
+
+.result-category
+    color: #999
+    margin-bottom: 5px
