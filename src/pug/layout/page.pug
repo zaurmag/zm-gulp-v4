@@ -21,7 +21,7 @@ html(lang="en")
             //- Include header
             include ../regions/header.pug
 
-            .container.maincontainer
+            .container.main-container
 
                 if(pageClass != 'homepage')
                     //- Breadcrumbs
@@ -33,8 +33,10 @@ html(lang="en")
                             li.active #{title}
 
                 block top-position
+
                 .row
                     block columns
+
                 block bottom-position
 
             //- Include footer
