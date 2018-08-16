@@ -33,13 +33,9 @@ html(lang="en")
                             li.active #{title}
 
                 block top-position
-                    section.top-position
-
                 .row
                     block columns
-
                 block bottom-position
-                    section.bottom-position
 
             //- Include footer
             include ../regions/footer.pug
@@ -62,7 +58,7 @@ html(lang="en")
             include ../../../build/images/sprite.svg
 
         a.go_top_link(href='#', style='display:none;')
-            +icon('top-arrow')
+            +icon('arrow-up')
         script(src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
         script(src='/js/scripts.min.js')
         block script
