@@ -12,17 +12,22 @@ block top-position
 block columns
     main.content-left.col-lg-8
         article.page.textblock
-            h1 Заголовок страницы
+            h1 Заголовок страницы первого уровня
             p.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                Lorem <span class="d-inline-block text-truncate" style="max-width: 150px">ipsum dolor sit amet, consectetur</span> adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation <strong>ullamco laboris</strong> nisi ut aliquip ex ea commodo
                 consequat.
 
+            h2 Адаптивное видео
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(width="560", height="315", src="https://www.youtube.com/embed/FFs3sYzxULk?rel=0", frameborder="0", allow="autoplay; encrypted-media", allowfullscreen)
 
-            .slider.owl-carousel
-                - for(var i = 1; i < 6; i++)
-                    .slider__item= i
+            .module.mt-5
+                .module__title Слайдер
+                .slider.owl-carousel
+                    - for(var i = 1; i < 6; i++)
+                        .slider__item.w-100.h-100= i
 
 
     //- Sidebar
